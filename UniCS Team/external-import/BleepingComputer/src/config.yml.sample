@@ -1,0 +1,12 @@
+opencti:
+  url: 'http://localhost:8080'
+  token: 'ChangeMe'
+
+connector:
+  id: 'ChangeMe'
+  type: 'EXTERNAL_IMPORT'
+  name: 'BleepingComputer'
+  scope: 'Bundle, Malware, Report, Note, Relationship, Identity, ExternalReference' # MIME type or SCO
+  confidence_level: 100 # From 0 (Unknown) to 100 (Fully trusted)
+  log_level: 'info'
+  bleeping_interval: '2'

@@ -1,0 +1,17 @@
+version: '3'
+services:
+  connector-anyrun:
+    image: pietrovitagliano/anyrun:0.320
+    environment:
+      - OPENCTI_URL=http://opencti:8080
+      - OPENCTI_TOKEN=${OPENCTI_ADMIN_TOKEN}
+      - CONNECTOR_ID=${CONNECTOR_ANYRUN_ID}
+      - CONNECTOR_TYPE=INTERNAL_ENRICHMENT
+      - CONNECTOR_NAME=Anyrun
+      - CONNECTOR_SCOPE=StixFile,Artifact,Url,Domain,X-OpenCTI-Hostname,attack-pattern,intrusion-set,malware,report,attack-info # MIME type or Stix Object
+      - CONNECTOR_AUTO=true # Enable/disable auto-enrichment of observables
+      - CONNECTOR_CONFIDENCE_LEVEL=100 # From 0 (Unknown) to 100 (Fully trusted)
+      - CONNECTOR_LOG_LEVEL=info
+    restart: always
+    depends_on:
+      - opencti
